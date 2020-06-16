@@ -4,9 +4,6 @@ using CoVid19Info.Persistence;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
-using CoVid19Info.Services;
-using Microsoft.EntityFrameworkCore;
 
 namespace CoVid19Info.Controllers
 {
@@ -23,11 +20,19 @@ namespace CoVid19Info.Controllers
 
         // GET: api/CountryModels
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<AllCountriesModel>>> GetCountryModels()
+        public ActionResult<IEnumerable<AllCountriesModel>> GetCountryModels()
         {
             //return await _context.AllCountriesModels.OrderByDescending(x => x.Cases).ToArrayAsync();
 
-            return await i_context.AllCountriesModels.Where(x => DateTimeOffset.FromUnixTimeMilliseconds(x.Updated).Date == DateTime.Today).Select(x => x);
+            var maxUpdated = _context.AllCountriesModels
+                .Select(x => x.Updated)
+                .Max();
+
+            return _context.AllCountriesModels
+                .AsEnumerable()
+                .Where(x => DateTimeOffset.FromUnixTimeMilliseconds(x.Updated).Date == DateTimeOffset.FromUnixTimeMilliseconds(maxUpdated).Date)
+                .OrderByDescending(x => x.Cases)
+                .ToList();
         }
 
         // GET: api/CountryModels/5

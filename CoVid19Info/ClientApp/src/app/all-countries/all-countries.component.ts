@@ -14,7 +14,6 @@ export class AllCountriesComponent {
         this.countries = result;
       },
       error => console.error(error));
-
   }
 }
 

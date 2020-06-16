@@ -1,26 +1,58 @@
 <h1 id="tableLabel">CoVid 19 Statistics</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
 
 <p *ngIf="!countries"><em>Loading...</em></p>
 
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="countries">
+<table class='table table-hover' aria-labelledby="tableLabel" *ngIf="countries">
   <thead>
   <tr>
+    <th scope="col">#</th>
     <th>Country Name</th>
     <th>Cases</th>
-    <th>todayCases</th>
+    <th>Today Cases</th>
     <th>Deaths</th>
+    <th>Today Deaths</th>
+    <th>Recovered</th>
+    <th>Today Recovered</th>
+    <th>Active Cases</th>
+    <th>Critical Cases</th>
+    <th>Cases/1M pop</th>
+    <th>Deaths/1M pop</th>
+    <th>Tests</th>
+    <th>Tests/1M pop</th>
+    <th>Population</th>
+    <th>Continent</th>
+    <th>Active/1M pop</th>
+    <th>Recovered/1M pop</th>
+    <th>Critical/1M pop</th>
     <th>Updated</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let country of countries">
+  <tr *ngFor="let country of countries; let i = index">
+    <th scope="col">{{ i + 1}}</th>
     <td>{{ country.country }}</td>
     <td>{{ country.cases }}</td>
     <td>{{ country.todayCases }}</td>
     <td>{{ country.deaths }}</td>
-    <td>{{ country.updated}}</td>
+    <td>{{ country.todayDeaths }}</td>
+    <td>{{ country.recovered }}</td>
+    <td>{{ country.todayRecovered }}</td>
+    <td>{{ country.active }}</td>
+    <td>{{ country.critical }}</td>
+    <td>{{ country.casesPerOneMillion }}</td>
+    <td>{{ country.deathsPerOneMillion }}</td>
+    <td>{{ country.tests }}</td>
+    <td>{{ country.testsPerOneMillion }}</td>
+    <td>{{ country.population }}</td>
+    <td>{{ country.continent }}</td>
+    <!--<td>{{ country.oneCasePerPeople }}</td>-->
+    <!--<td>{{ country.oneDeathPerPeople }}</td>-->
+    <!--<td>{{ country.oneTestPerPeople }}</td>-->
+    <td>{{ country.activePerOneMillion }}</td>
+    <td>{{ country.recoveredPerOneMillion }}</td>
+    <td>{{ country.criticalPerOneMillion }}</td>
+    <td>{{ country.updated }}</td>
   </tr>
   </tbody>
 </table>

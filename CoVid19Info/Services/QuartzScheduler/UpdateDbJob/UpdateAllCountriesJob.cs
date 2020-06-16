@@ -31,12 +31,15 @@ namespace CoVid19Info.Services.QuartzScheduler.UpdateDbJob
                 var countryModels =
                     DeserializeByQueryString.GetModels<AllCountriesModel>("https://disease.sh/v2/countries");
 
-                var first50CountryModels = countryModels.OrderByDescending(x => x.Cases).Take(50).ToList();
+                var first50CountryModels = countryModels
+                    .OrderByDescending(x => x.Cases)
+                    .Take(50)
+                    .ToList();
 
                 //var all = dataContext.AllCountriesModels.ToList();
                 //dataContext.RemoveRange(all);
 
-                //dataContext.AllCountriesModels.AddRange(first50CountryModels);
+                dataContext.AllCountriesModels.AddRange(first50CountryModels);
 
                 await dataContext.SaveChangesAsync();
             }

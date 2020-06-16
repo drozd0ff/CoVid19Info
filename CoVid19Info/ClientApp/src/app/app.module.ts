@@ -25,10 +25,10 @@ import { AllCountriesComponent } from './all-countries/all-countries.component';
     HttpClientModule,
     FormsModule,
     RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-      { path: 'allcountries', component: AllCountriesComponent },
+      //{ path: '', component: HomeComponent, pathMatch: 'full' },
+      //{ path: 'counter', component: CounterComponent },
+      //{ path: 'fetch-data', component: FetchDataComponent },
+      { path: '', component: AllCountriesComponent, pathMatch: 'full' },
     ])
   ],
   providers: [],
