@@ -22,7 +22,7 @@ namespace CoVid19Info.Services.QuartzScheduler.UpdateDbJob
         }
         public async Task Execute(IJobExecutionContext context)
         {
-            _logger.LogInformation("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
+            //_logger.LogInformation("SSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSSS");
 
             // How to create scoped service inside singleton 
             using (var scope = _provider.CreateScope())
@@ -35,9 +35,6 @@ namespace CoVid19Info.Services.QuartzScheduler.UpdateDbJob
                     .OrderByDescending(x => x.Cases)
                     .Take(50)
                     .ToList();
-
-                //var all = dataContext.AllCountriesModels.ToList();
-                //dataContext.RemoveRange(all);
 
                 dataContext.AllCountriesModels.AddRange(first50CountryModels);
 

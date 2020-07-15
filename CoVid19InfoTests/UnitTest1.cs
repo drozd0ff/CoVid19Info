@@ -18,7 +18,7 @@ namespace CoVid19InfoTests
 
             Assert.AreEqual(DateTimeOffset.Now.Date, result);
         }
-
+        
         [Test]
         public void IsTimestampTodayTest()
         {

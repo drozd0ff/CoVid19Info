@@ -46,6 +46,7 @@ namespace CoVid19Info
                 jobType: typeof(UpdateAllCountriesJob),
                 cronExpression: "0 0 10 * * ?"));
             //0 0 10 * * ? -- every day at 10am
+            //0 0 0/12 ? * *  -- every 12 hours
 
             services.AddControllersWithViews();
             // In production, the Angular files will be served from this directory

@@ -34,29 +34,5 @@ namespace CoVid19Info.Controllers
                 .OrderByDescending(x => x.Cases)
                 .ToList();
         }
-
-        // GET: api/CountryModels/5
-        //[HttpGet("{id}")]
-        //public async void /*Task<ActionResult<CountryModel>>*/ GetCountryModel(int id)
-        //{
-        //if (id == 12)
-        //{
-        //    var request = WebRequest.Create("https://disease.sh/v2/countries/ukraine");
-        //    StreamReader streamReader = new StreamReader(request.GetResponse().GetResponseStream());
-        //    CountryModel countryModel = JsonConvert.DeserializeObject<CountryModel>(streamReader.ReadToEnd());
-
-        //    _context.CountryModels.Add(countryModel);
-        //    await _context.SaveChangesAsync();
-        //}
-
-        //var countryModel = await _context.CountryModels.FindAsync(id);
-
-        //if (countryModel == null)
-        //{
-        //    return NotFound();
-        //}
-
-        //return countryModel;
-        //}
     }
 }
